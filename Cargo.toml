@@ -1,0 +1,9 @@
+[package]
+name = "rustyfetch"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sysinfo = "0.22"
+termion = "1.5"
+nvml-wrapper = "0.8"
