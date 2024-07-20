@@ -9,7 +9,7 @@ fn main() {
     // Fetching information
     let os_name = sys.name().unwrap_or_else(|| "Unknown".to_string());
 
-    let arch_logo = r#"                    
+    let arch_logo = r#"
         /\\
        /  \\
       /    \\
@@ -17,21 +17,20 @@ fn main() {
     /   ,,   \\
    /   |  |  -\\
   /_-''    ''-_\\
-  
   "#;
 
     // Determine if the OS is Arch Linux
-
+    let is_arch = os_name.to_lowercase().contains("arch");
 
     // Displaying information
-    println!("{}{}{}", color::Fg(color::Cyan), style::Bold, "Are You Using Arch Linux?");
+    println!("{}{}Are You Using Arch Linux?{}", color::Fg(color::Cyan), style::Bold, style::Reset);
     println!("{}", arch_logo);
 
-    if os_name.contains("Arch"){
-      println!("{}{}{}",
-               color::Fg(color::Cyan), style::Bold, "Congratulations, you are running Arch Linux!");
-  } else {
-      println!("{}{}{}",
-               color::Fg(color::Cyan), style::Bold, "No, you are not using Arch Linux!");
-  }
+    let message = if is_arch {
+        "Congratulations, you are running Arch Linux!"
+    } else {
+        "No, you are not using Arch Linux!"
+    };
+
+    println!("{}{}{}{}", color::Fg(color::Cyan), style::Bold, message, style::Reset);
 }
