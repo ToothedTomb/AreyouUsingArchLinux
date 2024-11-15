@@ -34,6 +34,7 @@ fn main() {
         println!("{}{}{}",
                  color::Fg(color::Cyan), style::Bold, "No, you are not using Arch Linux!");
     }
+    println!("{}", color::Fg(color::Reset)); //This will reset the color of the terminal text when the program ends. 
 }
 
 // Function to check if the OS is Arch Linux
